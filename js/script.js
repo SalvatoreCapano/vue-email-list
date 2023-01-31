@@ -4,7 +4,8 @@ createApp({
     data() {
         return {
             mail: "",
-            emails: []
+            emails: [],
+            emailsTemp: []
         }
     },
     methods: {
@@ -15,7 +16,7 @@ createApp({
                     console.log(response);
                     console.log(response.data);
 
-                    this.emails.push(response.data.response);
+                    this.emailsTemp.push(response.data.response);
                 }
             );
         },
@@ -23,6 +24,7 @@ createApp({
             for (let i = 0; i < 10; i++) {
                 this.getEmail();
             }
+            this.emails = this.emailsTemp;
         }
     }
 }).mount("#app");
